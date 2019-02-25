@@ -32,6 +32,7 @@ public class DefaultRoomService implements RoomService{
 	             log.info(String.format("Room: %s", dimensions));
 	             Room room = roomBuilderService.parseRoom(dimensions);
 	             neededWallpaper += getNeededWallpaperForRoom(room);
+	             log.info(String.format("\tWe need %d square feet of wallpaper (so far...)", neededWallpaper));
 	        }
         }
         catch(Exception e) {
