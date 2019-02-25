@@ -28,10 +28,7 @@ public class DefaultRoomService implements RoomService{
 	        InputStream is = file.getInputStream();
 	        BufferedReader br = new BufferedReader(new InputStreamReader(is));
 	        while ((dimensions = br.readLine()) != null) {
-	             log.info(String.format("Room: %s", dimensions));
-	             Room room = roomBuilderService.parseRoom(dimensions);
-	             neededWallpaper += getNeededWallpaperForRoom(room);
-	             log.info(String.format("\tWe need %d square feet of wallpaper (so far...)", neededWallpaper));
+	             neededWallpaper += getNeededWallpaperForRoom(dimensions);
 	        }
         }
         catch(Exception e) {
@@ -39,6 +36,12 @@ public class DefaultRoomService implements RoomService{
             return 0;
         }
         return neededWallpaper;
+	}
+	
+	private int getNeededWallpaperForRoom(String roomAsString) {
+        log.info(String.format("Room: %s", roomAsString));
+		Room room = roomBuilderService.parseRoom(roomAsString);
+        return getNeededWallpaperForRoom(room);
 	}
 	
 	public int getNeededWallpaperForRooms(Collection<Room> rooms) {
