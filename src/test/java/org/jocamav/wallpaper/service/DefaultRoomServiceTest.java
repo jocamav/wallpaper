@@ -103,5 +103,11 @@ public class DefaultRoomServiceTest {
 		assertThat(neededWallapaper).isEqualTo(47);
 	}
 	
+	@Test
+	public void getNeededWallpaper_forInvalidFile() {
+		MultipartFile multipartFile = null;
+		int neededWallapaper = roomService.getNeededWallpaperForRooms(multipartFile);
+		assertThat(neededWallapaper).isEqualTo(0);
+	}
 	
 }
