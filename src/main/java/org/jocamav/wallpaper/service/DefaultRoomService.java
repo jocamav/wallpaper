@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.jocamav.wallpaper.controller.WallpaperController;
 import org.jocamav.wallpaper.dto.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
